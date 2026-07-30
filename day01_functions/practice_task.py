@@ -80,3 +80,4 @@ print("Task 3")
 responses = [("summarize", 120), ("translate", 45), ("write code", 200), ("chat", 15)]
 print(sorted(responses , key=lambda item: item[1]))
 print(max(responses , key=lambda item: item[1]))
+
