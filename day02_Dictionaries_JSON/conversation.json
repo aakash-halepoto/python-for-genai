@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": "How do I renew my CNIC?"
+  },
+  {
+    "role": "assistant",
+    "content": "Visit the NADRA website..."
+  },
+  {
+    "role": "user",
+    "content": "What documents do I need?"
+  },
+  {
+    "role": "assistant",
+    "content": "You need your old CNIC and..."
+  },
+  {
+    "role": "user",
+    "content": "Where is the nearest NADRA office?"
+  },
+  {
+    "role": "assistant",
+    "content": "The nearest office is on Main Road, Latifabad."
+  }
+]

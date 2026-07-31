@@ -1,5 +1,3 @@
-print("The Prompt Processing Engine")
-
 # Scenario: The Prompt Processing Engine
 
 # You've just joined a small AI startup as a junior engineer. The team has a chatbot, and every day users submit hundreds of prompts. The data comes in messy, and your team lead assigns you your first real ticket:
@@ -7,6 +5,7 @@ print("The Prompt Processing Engine")
 # "Build our prompt processing module. We need to clean incoming prompts, batch them for the API, apply per-request settings, log everything, and report daily usage stats. Make it reusable functions — this runs every day."
 
 # The incoming data (today's dump):
+print("The Prompt Processing Engine")
 raw_prompts = [
     "  Translate this to Urdu  ",
     "",
