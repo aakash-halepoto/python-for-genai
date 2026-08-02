@@ -1,0 +1,14 @@
+[
+  {
+    "role": "user",
+    "content": "How do I renew my CNIC?"
+  },
+  {
+    "role": "assistant",
+    "content": "Visit the NADRA website..."
+  },
+  {
+    "role": "user",
+    "content": "What documents do I need?"
+  }
+]
