@@ -1,0 +1,13 @@
+{
+  "total_queries": 480,
+  "plans": {
+    "pro": 2,
+    "free": 3
+  },
+  "top_user": "Zara",
+  "cities": {
+    "Hyderabad": 2,
+    "unknown": 2,
+    "Karachi": 1
+  }
+}

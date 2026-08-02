@@ -149,3 +149,98 @@ print(f"Content of last message : {restored_messages[-1]['content']}")
 with open("day02_Dictionaries_JSON/conversation.json" , "w") as f:
     json.dump(restored_messages,f,indent=2)
 
+
+
+
+print("------ Extra Tasks --------")
+
+# Safe profile reader
+
+users = [
+    {"name": "Ali", "plan": "free", "queries": 45},
+    {"name": "Sara", "plan": "pro"},
+    {"name": "Bilal", "queries": 12},
+]
+
+# Loop and print one line per user: Ali | plan: free | queries: 45. Missing plan → "free", missing queries → 0. No crashes allowed
+
+for user in users:
+    print(f"user: {user['name']} | plan: {user.get('plan','free')} | queries: {user.get('queries',0)}")
+
+print()
+# Token accountant
+
+api_calls = [
+    {"model": "claude", "tokens": 1200},
+    {"model": "gpt-4o", "tokens": 800},
+    {"model": "claude", "tokens": 400},
+    {"model": "gemini", "tokens": 950},
+    {"model": "claude", "tokens": 600},
+]
+# Total tokens across all calls (sum + comprehension)
+total_tokens =  sum(api['tokens'] for api in api_calls)
+print(f"Total tokens across all calls : {total_tokens}")
+# Total tokens used by claude only
+claude_tokens = sum(api['tokens'] for api in api_calls if api['model'] == 'claude')
+print(f"Total token used by claude only : {claude_tokens}")
+
+# The single biggest call (max + lambda) — print just its model name
+biggest_call_model = max(api_calls, key=lambda api: api["tokens"])["model"]
+print(f"Biggest call : {biggest_call_model}")
+print()
+
+
+# Counting with a dict (new pattern, figure it out)
+# Using api_calls from Task 2, build a dict counting calls per model:
+
+# {"claude": 3, "gpt-4o": 1, "gemini": 1}
+
+counts = {}
+for api in api_calls:
+    model = api["model"]
+    counts[model] = counts.get(model,0) + 1
+
+print(counts)
+print()
+# Hint: start with counts = {}, loop the calls, and use counts[model] = counts.get(model, 0) + 1 
+# trace what .get(model, 0) does the first time a model appears vs later times. This is THE classic dict pattern; interviews love it
+
+
+# Nested config reader
+config = {
+    "app": {"name": "GovChat", "version": "1.0"},
+    "llm": {"model": "claude", "settings": {"temperature": 0.7, "max_tokens": 500}},
+}
+# Print the app name and the temperature (peel to the right depth)
+# Safely read config["llm"]["settings"] key "top_p" with fallback 1.0
+# Update temperature to 0.3 and add "language": "urdu" inside "app"
+# Print the final config
+
+
+print(f"App name : {config['app']['name']} , Tempreatur3 : {config['llm']['settings']['temperature']}")
+print(config['llm']['settings'].get('top_p',1.0))
+config['llm']['settings']['temperature'] = 0.3
+config['app']['language'] = 'urdu'
+
+print(config)
+print()
+
+
+# Round trip with a twist
+
+# Save Task 3's counts dict to model_counts.json (indent=2). Load it back, add one more call for "gemini" using the Task 3 pattern, save again. Open the file and verify gemini says 2.
+
+with open('day02_Dictionaries_JSON/model_counts.json','w') as file:
+    json.dump(counts,file,indent=2)
+
+
+with open('day02_Dictionaries_JSON/model_counts.json','r') as file:
+    restored_model_counts = json.load(file)
+
+
+print(restored_model_counts)
+restored_model_counts['gemini'] = restored_model_counts.get('gemini',0)+1
+print(restored_model_counts)
+
+with open('day02_Dictionaries_JSON/model_counts.json', 'w') as file:
+    json.dump(restored_model_counts, file, indent=2)

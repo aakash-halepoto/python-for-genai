@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Ali",
+    "plan": "pro",
+    "queries": 120,
+    "city": "Hyderabad"
+  },
+  {
+    "name": "Sara",
+    "queries": 45
+  },
+  {
+    "name": "Bilal",
+    "plan": "free",
+    "city": "Karachi"
+  },
+  {
+    "name": "Zara",
+    "plan": "pro",
+    "queries": 300,
+    "city": "Hyderabad"
+  },
+  {
+    "name": "Omar",
+    "plan": "free",
+    "queries": 15
+  }
+]
