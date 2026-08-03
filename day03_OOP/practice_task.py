@@ -191,37 +191,8 @@ for i in range(1,6):
 
 print()
 
-# The composed class (new idea, small step)
-
-# Classes can contain other classes' objects — no inheritance, just storage. Build Session:
-
-# __init__ takes a ChatUser object and stores it as self.user, plus creates a fresh Conversation() as self.convo
-# ask(self, question) — calls self.user.ask(), adds the question via self.convo.add_user(question), and returns the user's ask-result
-# summary(self) — returns f"{self.user.name} | messages: {len(self.convo)}" (your __len__ earning its keep!)
-
-class Session:
-    def __init__(self,user):
-        self.user = user
-        self.convo = Conversation()
-
-    def ask(self, question):
-        result = self.user.ask()
-        self.convo.add_user(question)
-        return result
-
-    def summary(self):
-        return f"{self.user.name} | messages:{len(self.convo)}"
 
 
-
-ali = ChatUser("Ali")
-session = Session(ali)
-
-result = session.ask("How do I renew my pssport?")
-print(result)
-print(session.summary())
-
-print()
 print("-----Composed Class Tasks-----")
 
 # One part, one whole

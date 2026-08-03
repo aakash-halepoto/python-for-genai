@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "How do I renew my CNIC?"
+  },
+  {
+    "role": "user",
+    "content": "What documents do I need?"
+  }
+]
