@@ -1,0 +1,9 @@
+{
+  "total_tickets": 7,
+  "by_category": {
+    "billing": 3,
+    "technical": 3,
+    "uncategorized": 1
+  },
+  "resolution_rate": 42.9
+}
