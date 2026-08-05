@@ -39,7 +39,7 @@ def analyze_users(usernames):
     for username in usernames:
         user_data = fetch_user(username)     
         if user_data is None:
-            print(f"Skipping {username} — not found")
+            print(f"Skipping {username} not found")
             continue                        
         profiles.append(extract_profile(user_data))
     return profiles
